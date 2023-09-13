@@ -1,0 +1,16 @@
+{
+  "name": "@dt-cloud/monorepo",
+  "version": "1.0.0",
+  "description": "DT Cloud - Personalized News Feed",
+  "private": true,
+  "workspaces": [
+    "packages/modules/mongodb",
+    "packages/modules/mailing",
+    "packages/apps/api"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sertan Soydabas",
+  "license": "ISC"
+}

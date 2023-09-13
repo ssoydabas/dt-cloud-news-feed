@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <title>Cannabox</title>
+    <style type="text/css">
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .main {
+        margin: 48px auto;
+        max-width: 560px;
+        background-color: #ffffff;
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.01);
+        border-radius: 8px;
+        padding: 48px 40px;
+      }
+
+      .main-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 40px;
+      }
+
+      .header-avatar-image {
+        width: 64px;
+        height: 64px;
+      }
+
+      .header-avatar {
+        font-size: 14px;
+      }
+
+      .header-avatar-name {
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      .header-avatar-title {
+        font-size: 1rem;
+        color: #7d7d7d;
+      }
+
+      .main-body {
+        padding: 0 8px;
+      }
+
+      .main-body h1 {
+        font-size: 24px;
+      }
+
+      .main-body a {
+        text-decoration: none;
+        color: #51acff;
+      }
+
+      .cover-image {
+        max-width: 100%;
+        border-radius: 1.25rem;
+        margin-bottom: 2rem;
+      }
+
+      .main-body a.verify-email-button {
+        display: block;
+        width: 100%;
+        background-color: #51acff;
+        color: #ffffff;
+        text-align: center;
+        padding: 16px;
+        border-radius: 8px;
+        margin: 16px 0;
+      }
+
+      .main-body a.verify-email-button:hover {
+        background-color: #3c8ed7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-header">
+        <img
+          class="header-avatar-image"
+          src="http://cdn.mcauto-images-production.sendgrid.net/15708a52014a0240/4c0aa8bd-bfa6-44e5-9dd5-3a7e8b8599d5/200x200.jpeg"
+        />
+        <div class="header-avatar">
+          <div class="header-avatar-name">DT Cloud</div>
+          <div class="header-avatar-title">Personlized News Feed</div>
+        </div>
+      </div>
+
+      <div class="main-body">
+        <img
+          class="cover-image"
+          src="http://cdn.mcauto-images-production.sendgrid.net/15708a52014a0240/a3fdacf1-075f-431d-ae9d-519050fc521a/640x360.jpg"
+        />
+
+        <h1>Thank you for Sign Up 🙏</h1>
+
+        <p>
+          Welcome to DT-Cloud Personlized News Feed We’re happy to have you here
+          :)
+        </p>
+
+        <p>
+          Please click the button below to verify your email address and
+          complete your registration.
+        </p>
+
+        <a class="button verify-email-button" href="{{{verify_href}}}">
+          Verify my email address
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
