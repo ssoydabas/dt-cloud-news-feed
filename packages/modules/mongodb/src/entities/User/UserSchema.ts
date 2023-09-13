@@ -13,6 +13,25 @@ const UserSchema = new Schema(
       required: true,
     },
 
+    darkTheme: {
+      type: Boolean,
+    },
+
+    sources: {
+      type: [String],
+      default: [],
+    },
+
+    categories: {
+      type: [String],
+      default: [],
+    },
+
+    authors: {
+      type: [String],
+      default: [],
+    },
+
     verificationToken: {
       type: String,
       required: true,
@@ -24,19 +43,8 @@ const UserSchema = new Schema(
       type: String,
       index: true,
     },
+
     verifiedAt: {
-      type: Date,
-    },
-
-    name: {
-      type: String,
-    },
-
-    phone: {
-      type: String,
-    },
-
-    dateOfBirth: {
       type: Date,
     },
   },

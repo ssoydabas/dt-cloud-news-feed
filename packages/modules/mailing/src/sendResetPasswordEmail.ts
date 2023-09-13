@@ -11,11 +11,11 @@ export const sendResetPasswordEmail = async ({
 }: ResetPasswordEmailParams) => {
   const results = await sendgrid.send({
     to: email,
-    from: "cenk@cannabox.store",
-    subject: "Reset Password | Cannabox",
-    templateId: "d-e9db5439b2db4b34a08373819b20ff6b",
+    from: "ssoydabas41@gmail.com",
+    subject: "Reset Password",
+    templateId: "d-cfa541c7d03941bc807a6cff81b4a61e",
     dynamicTemplateData: {
-      change_password_href: `https://cannabox.co.th/auth/reset-password/${token}`,
+      change_password_href: `http://localhost:3000/auth/reset-password/${token}`,
     },
   });
 

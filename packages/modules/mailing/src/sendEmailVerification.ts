@@ -13,7 +13,7 @@ export const sendEmailVerification = async ({
     to: email,
     from: "ssoydabas41@gmail.com",
     subject: "Email Verification",
-    templateId: "d-e9db5439b2db4b34a08373819b20ff6b",
+    templateId: "d-ac6bcf58edce4ddaa25e266871bd4533",
     dynamicTemplateData: {
       verify_href: `http://localhost:3000/auth/verify/${verificationToken}`,
     },

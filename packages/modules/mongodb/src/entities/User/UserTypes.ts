@@ -8,10 +8,6 @@ export interface IUser {
   verificationToken: string;
   resetPasswordToken?: string;
 
-  name?: string;
-  phone?: string;
-  dateOfBirth?: Date;
-
   darkTheme?: boolean;
   sources?: string[];
   categories?: string[];

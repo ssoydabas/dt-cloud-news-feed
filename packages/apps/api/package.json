@@ -1,0 +1,56 @@
+{
+    "name": "@dt-cloud/api",
+    "version": "1.0.0",
+    "description": "DT Cloud main api server",
+    "private": true,
+    "engines": {
+      "node": "^18.0.0"
+    },
+    "scripts": {
+      "start": "node ./dist/bin/http-server.js",
+      "dev": "nodemon bin/http-dev-server.ts",
+      "debug": "nodemon --exec \"node --inspect-brk=0.0.0.0:9229 --require ts-node/register bin/http-dev-server.ts\"",
+      "build": "tsc --outDir dist",
+      "lint": "eslint src bin",
+      "g": "hygen"
+    },
+    "dependencies": {
+      "@dt-cloud/mailing": "*",
+      "@dt-cloud/mongodb": "*",
+      "bcrypt": "^5.1.0",
+      "compression": "^1.7.4",
+      "cors": "^2.8.5",
+      "express": "^4.18.2",
+      "express-prom-bundle": "^6.6.0",
+      "express-validator": "^6.14.3",
+      "http-status-codes": "^2.2.0",
+      "jsonwebtoken": "^9.0.0",
+      "module-alias": "^2.2.2",
+      "passport": "^0.6.0",
+      "passport-jwt": "^4.0.1",
+      "passport-local": "^1.0.0",
+      "prom-client": "^14.1.1",
+      "uuid": "^9.0.0"
+    },
+    "devDependencies": {
+      "@jest/globals": "^29.4.2",
+      "@types/bcrypt": "^5.0.0",
+      "@types/compression": "^1.7.2",
+      "@types/cors": "^2.8.13",
+      "@types/express": "^4.17.15",
+      "@types/jsonwebtoken": "^9.0.1",
+      "@types/module-alias": "^2.0.1",
+      "@types/node": "^18.11.18",
+      "@types/passport": "^1.0.12",
+      "@types/passport-jwt": "^3.0.8",
+      "@types/passport-local": "^1.0.35",
+      "@types/uuid": "^9.0.1",
+      "dotenv": "^16.0.3",
+      "hygen": "^6.2.11",
+      "mongodb-memory-server": "^8.11.4",
+      "nodemon": "^2.0.20",
+      "ts-node": "^10.9.1",
+      "typescript": "^4.9.5"
+    }
+  }
+  
