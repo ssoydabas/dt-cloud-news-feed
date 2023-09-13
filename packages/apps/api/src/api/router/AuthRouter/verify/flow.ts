@@ -1,4 +1,4 @@
-import { UserModel } from "@cannabox/mongodb";
+import { UserModel } from "@dt-cloud/mongodb";
 
 import { type RouteFlowType } from "../../utils";
 import { type IVerifyEmailParams } from "./params";

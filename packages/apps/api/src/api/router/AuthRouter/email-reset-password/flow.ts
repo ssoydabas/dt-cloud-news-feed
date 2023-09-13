@@ -1,4 +1,4 @@
-import { UserModel } from "@cannabox/mongodb";
+import { UserModel } from "@dt-cloud/mongodb";
 
 import mailing from "~api/services/mailing";
 

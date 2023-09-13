@@ -1,7 +1,7 @@
 import express, { type Application as ExpressApp } from "express";
 import { type Server as HttpServer } from "http";
 import compression from "compression";
-import { type Mongoose, connect as connectToMongodb } from "@ft-cloud/mongodb";
+import { type Mongoose, connect as connectToMongodb } from "@dt-cloud/mongodb";
 
 import { port, mongodbUri } from "./config";
 import { api } from "./api";

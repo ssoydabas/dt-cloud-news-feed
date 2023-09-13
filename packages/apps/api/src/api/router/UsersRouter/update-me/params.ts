@@ -21,7 +21,8 @@ export const params = useAuthenticatedUserParams<UpdateUserParams>(
       isArray: true,
       optional: true,
       custom: {
-        options: (arr: any[]) => arr.every((item) => typeof item === "string"),
+        options: (arr: string[]) =>
+          arr.every((item) => typeof item === "string"),
       },
       errorMessage: "sources should be an array of strings",
     },
@@ -31,7 +32,8 @@ export const params = useAuthenticatedUserParams<UpdateUserParams>(
       isArray: true,
       optional: true,
       custom: {
-        options: (arr: any[]) => arr.every((item) => typeof item === "string"),
+        options: (arr: string[]) =>
+          arr.every((item) => typeof item === "string"),
       },
       errorMessage: "categories should be an array of strings",
     },
@@ -41,7 +43,8 @@ export const params = useAuthenticatedUserParams<UpdateUserParams>(
       isArray: true,
       optional: true,
       custom: {
-        options: (arr: any[]) => arr.every((item) => typeof item === "string"),
+        options: (arr: string[]) =>
+          arr.every((item) => typeof item === "string"),
       },
       errorMessage: "authors should be an array of strings",
     },
