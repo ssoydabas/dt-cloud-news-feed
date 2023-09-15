@@ -35,57 +35,63 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="flex flex-col space-y-6">
-      <label className="sr-only" htmlFor="email">
-        Email
-      </label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Email"
-        className={`p-2 border border-gray-300 rounded focus:border-blue-200 focus:outline-none ${regularTransition}`}
-        onChange={onInputChange}
-      />
-      {isError && emailError && (
-        <span className="text-red-500 text-sm">{emailError}</span>
-      )}
+    <div className="flex flex-col space-y-8 items-center">
+      <div className="flex flex-col items-center w-full">
+        <label className="sr-only" htmlFor="email">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          className={`w-1/2 p-2 border border-gray-300 rounded focus:border-blue-200 focus:outline-none ${regularTransition}`}
+          onChange={onInputChange}
+        />
+        {isError && emailError && (
+          <span className="text-red-500 text-sm">{emailError}</span>
+        )}
+      </div>
 
-      <label className="sr-only" htmlFor="password">
-        Password
-      </label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Password"
-        className={`p-2 border border-gray-300 rounded focus:border-blue-200 focus:outline-none ${regularTransition}`}
-        onChange={onInputChange}
-      />
-      {isError && passwordError && (
-        <span className="text-red-500 text-sm">{passwordError}</span>
-      )}
+      <div className="flex flex-col items-center w-full">
+        <label className="sr-only" htmlFor="password">
+          Password
+        </label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          className={`w-1/2 p-2 border border-gray-300 rounded focus:border-blue-200 focus:outline-none ${regularTransition}`}
+          onChange={onInputChange}
+        />
+        {isError && passwordError && (
+          <span className="text-red-500 text-sm">{passwordError}</span>
+        )}
+      </div>
 
-      <label className="sr-only" htmlFor="repeatPassword">
-        Repeat Password
-      </label>
-      <input
-        type="password"
-        id="repeatPassword"
-        name="repeatPassword"
-        placeholder="Repeat Password"
-        className={`p-2 border border-gray-300 rounded focus:border-blue-200 focus:outline-none ${regularTransition}`}
-        onChange={onInputChange}
-      />
-      {!doesPasswordsMatch && (
-        <span className="text-red-500 text-sm">Passwords do not match</span>
-      )}
+      <div className="flex flex-col items-center w-full">
+        <label className="sr-only" htmlFor="repeatPassword">
+          Repeat Password
+        </label>
+        <input
+          type="password"
+          id="repeatPassword"
+          name="repeatPassword"
+          placeholder="Repeat Password"
+          className={`w-1/2 p-2 border border-gray-300 rounded focus:border-blue-200 focus:outline-none ${regularTransition}`}
+          onChange={onInputChange}
+        />
+        {!doesPasswordsMatch && (
+          <span className="text-red-500 text-sm">Passwords do not match</span>
+        )}
 
-      {isError && globalErrorMessage && (
-        <div className="text-red-600 text-center mt-4">
-          {globalErrorMessage}
-        </div>
-      )}
+        {isError && globalErrorMessage && (
+          <div className="text-red-600 text-center mt-4">
+            {globalErrorMessage}
+          </div>
+        )}
+      </div>
 
       <button
         className={`w-1/2 mx-auto py-2 px-4 bg-blue-400 text-white rounded hover:bg-blue-500 focus:outline-none ${regularTransition}`}

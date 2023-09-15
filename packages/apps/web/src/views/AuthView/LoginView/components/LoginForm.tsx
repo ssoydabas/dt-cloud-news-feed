@@ -36,14 +36,17 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="flex flex-col space-y-8">
-      <div>
+    <div className="flex flex-col space-y-8 items-center">
+      <div className="flex flex-col items-center w-full">
+        <label className="sr-only" htmlFor="email">
+          Email
+        </label>
         <input
           type="email"
           name="email"
           placeholder="Email"
           onChange={onInputChange}
-          className={`my-2 p-2 border border-gray-300 rounded focus:border-blue-200 focus:outline-none ${regularTransition}`}
+          className={`w-1/2 p-2 border border-gray-300 rounded focus:border-blue-200 focus:outline-none ${regularTransition}`}
           aria-label="Email"
         />
         {isError && emailError && (
@@ -51,13 +54,16 @@ export default function LoginForm() {
         )}
       </div>
 
-      <div>
+      <div className="flex flex-col items-center w-full">
+        <label className="sr-only" htmlFor="password">
+          Password
+        </label>
         <input
           type="password"
           name="password"
           placeholder="Password"
           onChange={onInputChange}
-          className={`my-2 p-2 border border-gray-300 rounded focus:border-blue-200 focus:outline-none ${regularTransition}`}
+          className={`w-1/2 my-2 p-2 border border-gray-300 rounded focus:border-blue-200 focus:outline-none ${regularTransition}`}
           aria-label="Password"
         />
         {isError && passwordError && (

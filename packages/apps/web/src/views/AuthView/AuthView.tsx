@@ -7,7 +7,7 @@ export interface IAuthViewProps {
 
 export default function AuthView({ Title, Form }: IAuthViewProps) {
   return (
-    <div className="flex flex-col justify-center space-y-12 w-2/5 mx-auto my-24 px-36 pt-14 pb-36 border rounded-3xl">
+    <div className="flex flex-col justify-center space-y-12 w-3/4 mx-auto my-24 px-36 pt-14 pb-36">
       {Title}
 
       {Form}
