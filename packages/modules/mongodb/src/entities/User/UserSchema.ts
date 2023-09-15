@@ -18,6 +18,10 @@ const UserSchema = new Schema(
       required: true,
     },
 
+    profilePictureUrl: {
+      type: String,
+    },
+
     verificationToken: {
       type: String,
       required: true,
