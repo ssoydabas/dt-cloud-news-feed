@@ -1,17 +1,25 @@
-import UserInformation from "./components/UserInformation/UserInformation";
-import {
-  UserSources,
-  UserCategories,
-  UserAuthors,
-} from "./components";
+import { useEffect } from "react";
+import { useLoggedInUser } from "~root/services/auth/hooks";
+import { useNavigate } from "react-router-dom";
+
+import { UserHeader } from "./components";
 
 export default function UserView() {
+  const loggedInUser = useLoggedInUser();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loggedInUser) {
+      navigate("/");
+    }
+  }, [loggedInUser, navigate]);
+
   return (
-    <div className="flex flex-col justify-center space-y-12 w-1/2 mx-auto my-12 px-36 py-12 border rounded-3xl">
-      <UserInformation />
-      <UserSources />
-      <UserCategories />
-      <UserAuthors />
+    <div className="flex flex-col justify-center space-y-12 w-full mx-auto px-36 py-8">
+      <UserHeader
+        name={loggedInUser?.name ?? ""}
+        email={loggedInUser?.email ?? ""}
+      />
     </div>
   );
 }
