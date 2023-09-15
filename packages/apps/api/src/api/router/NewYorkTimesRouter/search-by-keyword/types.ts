@@ -5,7 +5,7 @@ import type {
   IUnauthorizedErrorResponse,
 } from "~api/responses";
 
-import type { INewYorkTimesResponseResults } from "~api/types";
+import type { INewsResultType } from "~api/types";
 
 export interface ISearchNewYorkTimesByKeywordParams {
   keyword: string;
@@ -13,7 +13,7 @@ export interface ISearchNewYorkTimesByKeywordParams {
 }
 
 export type SearchNewYorkTimesByKeywordSuccessResponseBody =
-  IGetManyResponse<INewYorkTimesResponseResults>;
+  IGetManyResponse<INewsResultType>;
 
 export type SearchNewYorkTimesByKeywordErrorResponseBody =
   | IBadRequestErrorResponse

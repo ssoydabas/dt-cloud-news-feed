@@ -5,7 +5,7 @@ import type {
   IUnauthorizedErrorResponse,
 } from "~api/responses";
 
-import type { INewsApiResponseResults } from "~api/types";
+import type { INewsResultType } from "~api/types";
 
 export interface ISearchNewsApiByKeywordParams {
   keyword: string;
@@ -13,7 +13,7 @@ export interface ISearchNewsApiByKeywordParams {
 }
 
 export type SearchNewsApiByKeywordSuccessResponseBody =
-  IGetManyResponse<INewsApiResponseResults>;
+  IGetManyResponse<INewsResultType>;
 
 export type SearchNewsApiByKeywordErrorResponseBody =
   | IBadRequestErrorResponse

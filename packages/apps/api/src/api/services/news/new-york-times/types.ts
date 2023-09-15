@@ -1,3 +1,8 @@
+export interface INewYorkTimesResponseResultPerson {
+  firstname: string;
+  lastname: string;
+}
+
 export interface INewYorkTimesResponseResults {
   _id: string;
   web_url: string;
@@ -5,7 +10,10 @@ export interface INewYorkTimesResponseResults {
   headline: {
     main: string;
   };
-  pub_date: string;
+  pub_date: Date;
+  byline: {
+    person: INewYorkTimesResponseResultPerson[];
+  };
 }
 
 export interface INewYorkTimesResponse {

@@ -4,7 +4,7 @@ export interface INewsApiResponseResults {
   description: string;
   url: string;
   urlToImage: string;
-  publishedAt: string;
+  publishedAt: Date;
 }
 
 export interface INewsApiResponse {
