@@ -1,13 +1,8 @@
 import type { IGetOneResponse } from "~api/responses";
 
 export interface IMyUserRecord {
+  name: string;
   email: string;
-
-  darkTheme?: boolean;
-  sources?: string[];
-  categories?: string[];
-  authors?: string[];
-
   verifiedAt?: Date;
 }
 

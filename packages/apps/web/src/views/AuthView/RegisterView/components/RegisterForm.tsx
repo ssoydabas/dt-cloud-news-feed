@@ -6,11 +6,13 @@ export default function LoginForm() {
   const {
     register,
     doesPasswordsMatch,
+    setName,
     setEmail,
     setPassword,
     setRepeatPassword,
     isError,
     isLoading,
+    nameError,
     emailError,
     passwordError,
     globalErrorMessage,
@@ -20,6 +22,9 @@ export default function LoginForm() {
     const { name, value } = e.target;
 
     switch (name) {
+      case "name":
+        setName(value);
+        break;
       case "email":
         setEmail(value);
         break;
@@ -36,6 +41,23 @@ export default function LoginForm() {
 
   return (
     <div className="flex flex-col space-y-8 items-center">
+      <div className="flex flex-col items-center w-full">
+        <label className="sr-only" htmlFor="email">
+          Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Name"
+          className={`w-1/2 p-2 border border-gray-300 rounded focus:border-blue-200 focus:outline-none ${regularTransition}`}
+          onChange={onInputChange}
+        />
+        {isError && nameError && (
+          <span className="text-red-500 text-sm">{nameError}</span>
+        )}
+      </div>
+
       <div className="flex flex-col items-center w-full">
         <label className="sr-only" htmlFor="email">
           Email

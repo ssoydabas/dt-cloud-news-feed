@@ -4,6 +4,13 @@ import type { IRegisterBodyParams } from "./types";
 export type IRegisterParams = IRegisterBodyParams;
 
 export const params = useRequestParams<IRegisterParams>({
+  name: {
+    in: "body",
+    isString: true,
+    trim: true,
+    escape: true,
+    notEmpty: { errorMessage: "Name is required" },
+  },
   email: {
     in: "body",
     isString: true,

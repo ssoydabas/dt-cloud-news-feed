@@ -4,6 +4,7 @@ import type {
 } from "~api/responses";
 
 export interface IRegisterBodyParams {
+  name: string;
   email: string;
   password: string;
 }

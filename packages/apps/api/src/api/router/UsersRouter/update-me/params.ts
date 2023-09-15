@@ -10,43 +10,12 @@ export type UpdateUserParams = AuthenticatedUserParams & UpdateUserBodyParams;
 
 export const params = useAuthenticatedUserParams<UpdateUserParams>(
   useRequestParams({
-    darkTheme: {
+    name: {
       in: "body",
-      isBoolean: true,
-      optional: true,
-    },
-
-    sources: {
-      in: "body",
-      isArray: true,
-      optional: true,
-      custom: {
-        options: (arr: string[]) =>
-          arr.every((item) => typeof item === "string"),
-      },
-      errorMessage: "sources should be an array of strings",
-    },
-
-    categories: {
-      in: "body",
-      isArray: true,
-      optional: true,
-      custom: {
-        options: (arr: string[]) =>
-          arr.every((item) => typeof item === "string"),
-      },
-      errorMessage: "categories should be an array of strings",
-    },
-
-    authors: {
-      in: "body",
-      isArray: true,
-      optional: true,
-      custom: {
-        options: (arr: string[]) =>
-          arr.every((item) => typeof item === "string"),
-      },
-      errorMessage: "authors should be an array of strings",
+      isString: true,
+      trim: true,
+      escape: true,
+      notEmpty: { errorMessage: "Name is required" },
     },
   })
 );

@@ -14,11 +14,8 @@ export const successResponse = (user: IUser): IMyUserFlowResults => ({
   status: StatusCodes.OK,
   body: {
     record: {
+      name: user.name,
       email: user.email,
-      darkTheme: user.darkTheme,
-      sources: user.sources,
-      categories: user.categories,
-      authors: user.authors,
 
       verifiedAt: user.verifiedAt,
     },

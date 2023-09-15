@@ -2,16 +2,13 @@ import type { Model } from "mongoose";
 import type { Document } from "~types/mongoose";
 
 export interface IUser {
+  name: string;
+
   email: string;
   password: string;
 
   verificationToken: string;
   resetPasswordToken?: string;
-
-  darkTheme?: boolean;
-  sources?: string[];
-  categories?: string[];
-  authors?: string[];
 
   createdAt: Date;
   updatedAt: Date;

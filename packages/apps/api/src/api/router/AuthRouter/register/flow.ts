@@ -16,6 +16,7 @@ import {
 } from "./response";
 
 export const flow: RouteFlowType<IRegisterParams, RegisterResults> = async ({
+  name,
   email,
   password,
 }) => {
@@ -26,6 +27,7 @@ export const flow: RouteFlowType<IRegisterParams, RegisterResults> = async ({
   }
 
   const user = await UserModel.create({
+    name,
     email,
     password: await hashPassword(password),
     verificationToken: createVerificationToken(),

@@ -21,7 +21,7 @@ export default function SideMenuButtons({ onClick }: ISideMenuButtonsProps) {
       <LinkButton text={"Home"} to={"/"} onClick={onClick} />
       {isLoggedIn && (
         <LinkButton
-          text={loggedInUser?.email ?? ""}
+          text={loggedInUser?.name ?? ""}
           to={"/user"}
           onClick={onClick}
         />

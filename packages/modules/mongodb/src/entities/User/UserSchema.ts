@@ -2,6 +2,11 @@ import { Schema } from "mongoose";
 
 const UserSchema = new Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
+
     email: {
       type: String,
       required: true,
@@ -11,25 +16,6 @@ const UserSchema = new Schema(
     password: {
       type: String,
       required: true,
-    },
-
-    darkTheme: {
-      type: Boolean,
-    },
-
-    sources: {
-      type: [String],
-      default: [],
-    },
-
-    categories: {
-      type: [String],
-      default: [],
-    },
-
-    authors: {
-      type: [String],
-      default: [],
     },
 
     verificationToken: {
