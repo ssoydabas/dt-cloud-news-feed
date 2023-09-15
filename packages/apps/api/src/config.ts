@@ -9,4 +9,10 @@ export const jwtExpiresIn = process.env.JWT_EXPIRES_IN ?? "2w";
 
 export const jwtSecret = process.env.JWT_SECRET ?? "secret";
 
-export const sendgridApiKey = process.env.SENDGRID_API_KEY;
+export const sendgridApiKey = process.env.SENDGRID_API_KEY ?? "";
+
+export const guardianApiKey = process.env.GUARDIAN_API_KEY ?? "";
+
+export const newYorkTimesApiKey = process.env.NEW_YORK_TIMES_API_KEY ?? "";
+
+export const newsApiApiKey = process.env.NEWSAPI_API_KEY ?? "";
