@@ -7,19 +7,19 @@ import type {
 
 import type { INewsResultType } from "~api/types";
 
-export interface ISearchNewsApiByKeywordParams {
+export interface ISearchNewYorkTimesParams {
   keyword: string;
   page: number;
 }
 
-export type SearchNewsApiByKeywordSuccessResponseBody =
+export type SearchNewYorkTimesSuccessResponseBody =
   IGetManyResponse<INewsResultType>;
 
-export type SearchNewsApiByKeywordErrorResponseBody =
+export type SearchNewYorkTimesErrorResponseBody =
   | IBadRequestErrorResponse
   | INotFoundErrorResponse
   | IUnauthorizedErrorResponse;
 
-export type SearchNewsApiByKeywordResponseType =
-  | SearchNewsApiByKeywordSuccessResponseBody
-  | SearchNewsApiByKeywordErrorResponseBody;
+export type SearchNewYorkTimesResponseType =
+  | SearchNewYorkTimesSuccessResponseBody
+  | SearchNewYorkTimesErrorResponseBody;

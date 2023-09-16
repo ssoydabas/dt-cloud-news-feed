@@ -2,18 +2,18 @@ import { StatusCodes } from "http-status-codes";
 
 import { type IFlowResults } from "~api/router/utils";
 
-import type { SearchNewsApiByKeywordResponseType } from "./types";
+import type { SearchNewsApiResponseType } from "./types";
 
 import type { ICustomizedNewsApiResponse } from "~api/types";
 
 import { sanitizeRecord } from "~api-root/api/services/news/news-api/sanitizeRecords";
 
-export type SearchNewsApiByKeywordResults = IFlowResults<
+export type SearchNewsApiResults = IFlowResults<
   | StatusCodes.OK
   | StatusCodes.BAD_REQUEST
   | StatusCodes.NOT_FOUND
   | StatusCodes.UNAUTHORIZED,
-  SearchNewsApiByKeywordResponseType
+  SearchNewsApiResponseType
 >;
 
 export const successResponse = ({
@@ -21,7 +21,7 @@ export const successResponse = ({
   totalPages,
   totalResults,
   articles,
-}: ICustomizedNewsApiResponse): SearchNewsApiByKeywordResults => {
+}: ICustomizedNewsApiResponse): SearchNewsApiResults => {
   const records = articles.map(sanitizeRecord);
 
   return {
@@ -34,3 +34,11 @@ export const successResponse = ({
     },
   };
 };
+
+export const excessPageNumberError = (): SearchNewsApiResults => ({
+  status: StatusCodes.BAD_REQUEST,
+  body: {
+    message:
+      "You can't request the pages that are greater than 5 in development mode and developer api",
+  },
+});

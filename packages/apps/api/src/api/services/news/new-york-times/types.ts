@@ -12,7 +12,7 @@ export interface INewYorkTimesResponseResults {
   };
   pub_date: Date;
   byline: {
-    person: INewYorkTimesResponseResultPerson[];
+    person?: INewYorkTimesResponseResultPerson[];
   };
 }
 

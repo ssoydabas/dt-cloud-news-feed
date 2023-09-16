@@ -1,10 +1,10 @@
 import { Router } from "express";
 
-import searchByKeyword from "./search-by-keyword";
+import searchNewsApi from "./search-news-api";
 
 const router = Router();
 
-// GET /api/v1/news-api/search
-router.get("/search", searchByKeyword);
+// POST /api/v1/news-api/search
+router.post("/search", searchNewsApi);
 
 export default router;

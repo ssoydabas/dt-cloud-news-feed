@@ -2,22 +2,22 @@ import { StatusCodes } from "http-status-codes";
 
 import { type IFlowResults } from "~api/router/utils";
 
-import type { SearchNewYorkTimesByKeywordResponseType } from "./types";
+import type { SearchNewYorkTimesResponseType } from "./types";
 
 import type { INewYorkTimesResponse } from "~api/types";
 import { sanitizeRecord } from "~api-root/api/services/news/new-york-times/sanitizeRecords";
 
-export type SearchNewYorkTimesByKeywordResults = IFlowResults<
+export type SearchNewYorkTimesResults = IFlowResults<
   | StatusCodes.OK
   | StatusCodes.BAD_REQUEST
   | StatusCodes.NOT_FOUND
   | StatusCodes.UNAUTHORIZED,
-  SearchNewYorkTimesByKeywordResponseType
+  SearchNewYorkTimesResponseType
 >;
 
 export const successResponse = ({
   response,
-}: INewYorkTimesResponse): SearchNewYorkTimesByKeywordResults => {
+}: INewYorkTimesResponse): SearchNewYorkTimesResults => {
   const records = response.docs.map(sanitizeRecord);
   const totalRecords = response.meta.hits;
   const totalPages = Math.ceil(totalRecords / 10);

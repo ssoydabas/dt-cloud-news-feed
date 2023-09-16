@@ -1,9 +1,9 @@
 import { useRequestParams } from "~api/services/validations";
-import type { ISearchNewsApiByKeywordParams } from "./types";
+import type { ISearchNewsByKeywordParams } from "./types";
 
-export type SearchNewsApiByKeywordParamsType = ISearchNewsApiByKeywordParams;
+export type SearchNewsByKeywordParamsType = ISearchNewsByKeywordParams;
 
-export const params = useRequestParams<ISearchNewsApiByKeywordParams>({
+export const params = useRequestParams<ISearchNewsByKeywordParams>({
   keyword: {
     in: "query",
     isString: true,
@@ -12,7 +12,7 @@ export const params = useRequestParams<ISearchNewsApiByKeywordParams>({
     notEmpty: { errorMessage: "Keyword is required" },
   },
   page: {
-    in: "query",
+    in: "body",
     isNumeric: true,
     trim: true,
     escape: true,

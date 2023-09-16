@@ -10,7 +10,9 @@ export const sanitizeRecord = ({
   pub_date,
 }: INewYorkTimesResponseResults): INewsResultType => ({
   url: web_url,
-  author: `${person[0].firstname} ${person[0].lastname}`,
+  author: `${person?.[0]?.firstname ?? "Unknown"} ${
+    person?.[0]?.lastname ?? ""
+  }`.trim(),
   title: main,
   description: snippet,
   publishedAt: pub_date,

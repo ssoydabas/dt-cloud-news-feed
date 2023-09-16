@@ -1,1 +1,1 @@
-export * from "./search-by-keyword/types";
+export * from "./search-new-york-times/types";
