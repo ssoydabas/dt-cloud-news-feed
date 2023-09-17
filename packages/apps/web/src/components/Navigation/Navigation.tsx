@@ -13,9 +13,9 @@ export default function Navigation() {
   // const { pathname } = useLocation();
 
   return (
-    <div
+    <nav
       id="navigation-bar"
-      className="flex items-center justify-between w-full h-14 px-80 border-b"
+      className="flex items-center justify-between w-full h-14 px-80 py-2 border-b"
     >
       <SearchBarSection />
       <MainTitleSection />
@@ -38,6 +38,6 @@ export default function Navigation() {
           Logout
         </button>
       )} */}
-    </div>
+    </nav>
   );
 }

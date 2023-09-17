@@ -3,6 +3,11 @@ export interface INewYorkTimesResponseResultPerson {
   lastname: string;
 }
 
+export interface INewYorkTimesResponseMultimedia {
+  type: string;
+  url: string;
+}
+
 export interface INewYorkTimesResponseResults {
   _id: string;
   web_url: string;
@@ -14,6 +19,8 @@ export interface INewYorkTimesResponseResults {
   byline: {
     person?: INewYorkTimesResponseResultPerson[];
   };
+  multimedia: INewYorkTimesResponseMultimedia[];
+  section_name: string;
 }
 
 export interface INewYorkTimesResponse {

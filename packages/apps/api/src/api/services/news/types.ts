@@ -4,4 +4,7 @@ export interface INewsResultType {
   title: string;
   description: string;
   publishedAt: Date;
+  imageUrl: string;
+  source: string;
+  category: string;
 }

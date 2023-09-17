@@ -9,7 +9,7 @@ export const params = useRequestParams<ISearchNewYorkTimesParams>({
     isString: true,
     trim: true,
     escape: true,
-    optional: true,
+    notEmpty: { errorMessage: "Keyword is required" },
   },
   page: {
     in: "body",

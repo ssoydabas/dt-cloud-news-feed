@@ -1,6 +1,6 @@
 import type {
-  ISearchNewYorkTimesByKeywordParams,
-  SearchNewYorkTimesByKeywordSuccessResponseBody,
+  ISearchNewYorkTimesParams,
+  SearchNewYorkTimesSuccessResponseBody,
 } from "~api/types";
 import { useMutation, type UseMutationOptions } from "@tanstack/react-query";
 
@@ -8,26 +8,26 @@ import type { ApiError } from "../errors";
 import { fetchApi } from "../fetchers";
 
 export type FetchNYTNewsMutationOptions = UseMutationOptions<
-  SearchNewYorkTimesByKeywordSuccessResponseBody,
+  SearchNewYorkTimesSuccessResponseBody,
   ApiError,
-  ISearchNewYorkTimesByKeywordParams
+  ISearchNewYorkTimesParams
 >;
 
-const mutation = async (body: ISearchNewYorkTimesByKeywordParams) =>
+const mutation = async (body: ISearchNewYorkTimesParams) =>
   await fetchApi<
-    SearchNewYorkTimesByKeywordSuccessResponseBody,
-    ISearchNewYorkTimesByKeywordParams
+    SearchNewYorkTimesSuccessResponseBody,
+    ISearchNewYorkTimesParams
   >({
-    url: "new-york-times/search",
+    url: "/new-york-times/search",
     method: "POST",
     body,
   });
 
 export const useFetchNYTNewsMutation = (options: FetchNYTNewsMutationOptions = {}) =>
   useMutation<
-    SearchNewYorkTimesByKeywordSuccessResponseBody,
+    SearchNewYorkTimesSuccessResponseBody,
     ApiError,
-    ISearchNewYorkTimesByKeywordParams
+    ISearchNewYorkTimesParams
   >(mutation, {
     ...options,
     mutationKey: ["fetch-new-york-times-news"],

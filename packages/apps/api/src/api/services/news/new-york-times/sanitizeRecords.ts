@@ -8,6 +8,8 @@ export const sanitizeRecord = ({
   headline: { main },
   snippet,
   pub_date,
+  multimedia,
+  section_name,
 }: INewYorkTimesResponseResults): INewsResultType => ({
   url: web_url,
   author: `${person?.[0]?.firstname ?? "Unknown"} ${
@@ -16,4 +18,8 @@ export const sanitizeRecord = ({
   title: main,
   description: snippet,
   publishedAt: pub_date,
+  imageUrl:
+    multimedia.length > 0 ? `https://www.nytimes.com/${multimedia[0].url}` : "",
+  source: "new-york-times",
+  category: section_name,
 });

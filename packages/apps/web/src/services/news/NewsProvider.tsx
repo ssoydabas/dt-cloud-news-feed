@@ -1,4 +1,4 @@
-import { type ReactNode, useState } from "react";
+import { type ReactNode } from "react";
 import { useNewsReducer } from "./state";
 import NewsContext from "./NewsContext";
 
@@ -7,19 +7,18 @@ export interface INewsProviderProps {
 }
 
 export default function NewsProvider({ children }: INewsProviderProps) {
-  const [isReady, setIsReady] = useState(false);
-  const [state, dispatch] = useNewsReducer();
-
-  // Here I will fetch the first 20 news to initialize the app
-  // gonna use a custom hook for it
+  const [state, dispatch] = useNewsReducer({
+    currentKeyword: "global",
+    requestHistory: {},
+  });
 
   return (
     <NewsContext.Provider
       value={{
         ...state,
-        isReady,
-        news: [],
-        fetchNews: () => {},
+        news: [...(state.news ?? [])],
+        currentKeyword: state.currentKeyword,
+        requestHistory: { ...state.requestHistory },
         dispatch,
       }}
     >

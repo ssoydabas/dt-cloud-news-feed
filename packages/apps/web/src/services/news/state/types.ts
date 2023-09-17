@@ -1,16 +1,17 @@
-import type { Dispatch } from "react";
+import { Dispatch } from "react";
+
 import type { INewsResultType } from "~api/types";
 
-export interface NewsState {
-  isReady?: boolean;
-  news?: INewsResultType[];
-  fetchNews?: () => void;
-  dispatch?: NewsActionDispatcher;
+export interface IRequestHistory {
+  [key: string]: number;
 }
 
-export interface SetIsReadyAction {
-  type: "SET_IS_READY";
-  payload: boolean;
+export interface NewsState {
+  news?: INewsResultType[];
+  currentKeyword: string;
+  requestHistory: IRequestHistory;
+  error?: string;
+  loading?: boolean;
 }
 
 export interface FetchNewsAction {
@@ -18,6 +19,19 @@ export interface FetchNewsAction {
   payload: INewsResultType[];
 }
 
-export type NewsAction = SetIsReadyAction | FetchNewsAction;
+export interface SetKeywordAction {
+  type: "SET_KEYWORD";
+  payload: string;
+}
+
+export interface AddToHistoryAction {
+  type: "ADD_TO_HISTORY";
+  payload: { keyword: string; page: number };
+}
+
+export type NewsAction =
+  | FetchNewsAction
+  | SetKeywordAction
+  | AddToHistoryAction;
 
 export type NewsActionDispatcher = Dispatch<NewsAction>;

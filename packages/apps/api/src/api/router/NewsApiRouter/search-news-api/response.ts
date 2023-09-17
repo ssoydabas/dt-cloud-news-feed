@@ -21,8 +21,11 @@ export const successResponse = ({
   totalPages,
   totalResults,
   articles,
-}: ICustomizedNewsApiResponse): SearchNewsApiResults => {
-  const records = articles.map(sanitizeRecord);
+  keyword,
+}: ICustomizedNewsApiResponse & { keyword: string }): SearchNewsApiResults => {
+  const records = articles.map((article) =>
+    sanitizeRecord({ ...article, keyword })
+  );
 
   return {
     status: StatusCodes.OK,

@@ -7,10 +7,15 @@ export const sanitizeRecord = ({
   publishedAt,
   title,
   url,
-}: INewsApiResponseResults): INewsResultType => ({
+  urlToImage,
+  keyword,
+}: INewsApiResponseResults & { keyword: string }): INewsResultType => ({
   url,
   author,
   title,
   description,
   publishedAt,
+  imageUrl: urlToImage,
+  source: "news-api",
+  category: keyword,
 });

@@ -1,16 +1,16 @@
 import axios, { type AxiosResponse, type AxiosError } from "axios";
 
-import { newsApiApiKey, defaultNewsSearchPhrase } from "~api-root/config";
+import { newsApiApiKey } from "~api-root/config";
 import type { INewsApiResponse } from "./types";
 
 const newsApiUrl = "https://newsapi.org";
 const newsApiPath = "/v2/everything";
 
 export default async function searchContent({
-  keyword = defaultNewsSearchPhrase.toString(),
+  keyword,
   page,
 }: {
-  keyword?: string;
+  keyword: string;
   page: number;
 }) {
   if (page > 5) {

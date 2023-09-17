@@ -7,7 +7,7 @@ export default async function searchContent({
   keyword,
   page,
 }: {
-  keyword?: string;
+  keyword: string;
   page: number;
 }) {
   const newYorkTimesPage = page - 1;

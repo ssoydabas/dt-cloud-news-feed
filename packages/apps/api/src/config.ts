@@ -9,9 +9,6 @@ export const jwtExpiresIn = process.env.JWT_EXPIRES_IN ?? "2w";
 
 export const jwtSecret = process.env.JWT_SECRET ?? "secret";
 
-export const defaultNewsSearchPhrase =
-  process.env.DEFAULT_NEWS_SARCH_PHRASE ?? "global";
-
 export const sendgridApiKey = process.env.SENDGRID_API_KEY ?? "";
 
 export const guardianApiKey = process.env.GUARDIAN_API_KEY ?? "";

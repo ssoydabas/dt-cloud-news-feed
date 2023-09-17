@@ -7,18 +7,16 @@ const nytUrl = "https://api.nytimes.com/svc/search/v2";
 const nytPath = "/articlesearch.json";
 
 export default async function searchContent({
-  keyword = "",
+  keyword,
   page,
 }: {
-  keyword?: string;
+  keyword: string;
   page: number;
 }) {
   const url = new URL(nytUrl + nytPath);
   url.searchParams.append("api-key", newYorkTimesApiKey);
+  url.searchParams.append("q", keyword);
 
-  if (keyword) {
-    url.searchParams.append("q", keyword);
-  }
   if (page) {
     url.searchParams.append("page", page.toString());
   }

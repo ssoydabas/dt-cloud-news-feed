@@ -5,17 +5,25 @@ export type SearchNewsParamsType = ISearchNewsParams;
 
 export const params = useRequestParams<ISearchNewsParams>({
   keyword: {
-    in: "query",
+    in: "body",
     isString: true,
     trim: true,
     escape: true,
-    optional: true,
+    notEmpty: { errorMessage: "Keyword is required" },
   },
   page: {
     in: "body",
     isNumeric: true,
     trim: true,
     escape: true,
-    optional: true,
+    notEmpty: { errorMessage: "Page is required" },
+    custom: {
+      options: (value) => {
+        if (value <= 0) {
+          throw new Error("Page should be greater than 0");
+        }
+        return true;
+      },
+    },
   },
 });

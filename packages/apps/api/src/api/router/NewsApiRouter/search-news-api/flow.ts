@@ -27,6 +27,7 @@ export const flow: RouteFlowType<
     ...response,
     currentPage: page ?? 1,
     totalPages,
+    keyword,
   };
 
   return successResponse(customizedResponse);

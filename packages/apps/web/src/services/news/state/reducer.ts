@@ -9,13 +9,22 @@ const reducer: NewsReducer = (state, action) => {
     case "FETCH_NEWS":
       return {
         ...state,
-        news: [...(state.news || []), ...action.payload],
+        news: [...(state.news ?? []), ...action.payload],
       };
 
-    case "SET_IS_READY":
+    case "SET_KEYWORD":
       return {
         ...state,
-        isReady: action.payload,
+        currentKeyword: action.payload,
+      };
+
+    case "ADD_TO_HISTORY":
+      return {
+        ...state,
+        requestHistory: {
+          ...state.requestHistory,
+          [action.payload.keyword]: action.payload.page,
+        },
       };
 
     default:
@@ -23,5 +32,5 @@ const reducer: NewsReducer = (state, action) => {
   }
 };
 
-export const useNewsReducer = (initialState: NewsState = {}) =>
+export const useNewsReducer = (initialState: NewsState) =>
   useReducer(reducer, initialState);

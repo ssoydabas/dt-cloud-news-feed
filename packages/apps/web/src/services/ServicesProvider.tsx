@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 
 import { ReactQueryProvider } from "./react-query";
 import AuthProvider from "./auth/AuthProvider";
+import NewsProvider from "./news/NewsProvider";
 
 export interface IServicesProviderProps {
   children: ReactNode;
@@ -10,7 +11,9 @@ export interface IServicesProviderProps {
 export default function ServicesProvider({ children }: IServicesProviderProps) {
   return (
     <ReactQueryProvider>
-      <AuthProvider>{children}</AuthProvider>
+      <AuthProvider>
+        <NewsProvider>{children}</NewsProvider>
+      </AuthProvider>
     </ReactQueryProvider>
   );
 }

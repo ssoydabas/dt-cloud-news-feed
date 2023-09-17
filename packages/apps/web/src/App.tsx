@@ -5,7 +5,7 @@ import { NewsView, RegisterView, LoginView, UserView } from "./views";
 
 export default function App() {
   return (
-    <div>
+    <main className="flex flex-col h-screen">
       <Navigation />
       <div className="px-80">
         <Routes>
@@ -15,6 +15,6 @@ export default function App() {
           <Route path="/user" element={<UserView />} />
         </Routes>
       </div>
-    </div>
+    </main>
   );
 }
