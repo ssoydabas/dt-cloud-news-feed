@@ -13,6 +13,12 @@ export const useCurrentKeyword = () => useNewsContext().currentKeyword;
 
 export const useRequestHistory = () => useNewsContext().requestHistory;
 
+export const useSources = () => useNewsContext().sources;
+
+export const useCategories = () => useNewsContext().categories;
+
+export const useAuthors = () => useNewsContext().authors;
+
 export const useFetchNews = () => {
   const { dispatch, news, currentKeyword, requestHistory } = useNewsContext();
 
@@ -28,6 +34,7 @@ export const useFetchNews = () => {
       }
 
       dispatch?.({ type: "FETCH_NEWS", payload: records });
+      dispatch?.({ type: "SET_FILTER_OPTIONS", payload: "" });
 
       const currentPageForKeyword = requestHistory[currentKeyword] ?? 0;
 

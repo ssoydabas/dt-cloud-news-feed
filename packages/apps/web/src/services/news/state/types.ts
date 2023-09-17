@@ -10,13 +10,19 @@ export interface NewsState {
   news?: INewsResultType[];
   currentKeyword: string;
   requestHistory: IRequestHistory;
-  error?: string;
-  loading?: boolean;
+  sources: string[];
+  categories: string[];
+  authors: string[];
 }
 
 export interface FetchNewsAction {
   type: "FETCH_NEWS";
   payload: INewsResultType[];
+}
+
+export interface SetFilterOptionsAction {
+  type: "SET_FILTER_OPTIONS";
+  payload: string;
 }
 
 export interface SetKeywordAction {
@@ -31,6 +37,7 @@ export interface AddToHistoryAction {
 
 export type NewsAction =
   | FetchNewsAction
+  | SetFilterOptionsAction
   | SetKeywordAction
   | AddToHistoryAction;
 

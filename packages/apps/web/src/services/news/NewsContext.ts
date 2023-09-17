@@ -9,4 +9,7 @@ export type INewsContext = NewsState & {
 export default createContext<INewsContext>({
   currentKeyword: "global",
   requestHistory: {},
+  sources: [],
+  categories: [],
+  authors: [],
 });

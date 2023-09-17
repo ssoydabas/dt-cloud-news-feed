@@ -10,6 +10,9 @@ export default function NewsProvider({ children }: INewsProviderProps) {
   const [state, dispatch] = useNewsReducer({
     currentKeyword: "global",
     requestHistory: {},
+    sources: [],
+    categories: [],
+    authors: [],
   });
 
   return (
@@ -19,6 +22,9 @@ export default function NewsProvider({ children }: INewsProviderProps) {
         news: [...(state.news ?? [])],
         currentKeyword: state.currentKeyword,
         requestHistory: { ...state.requestHistory },
+        sources: [...state.sources],
+        categories: [...state.categories],
+        authors: [...state.authors],
         dispatch,
       }}
     >

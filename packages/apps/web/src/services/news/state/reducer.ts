@@ -7,9 +7,29 @@ export type NewsReducer = Reducer<NewsState, NewsAction>;
 const reducer: NewsReducer = (state, action) => {
   switch (action.type) {
     case "FETCH_NEWS":
+      const fetchedNews = state.news ?? [];
+
       return {
         ...state,
-        news: [...(state.news ?? []), ...action.payload],
+        news: [...fetchedNews, ...action.payload],
+      };
+
+    case "SET_FILTER_OPTIONS":
+      const news = state.news ?? [];
+
+      const sourcesSet = new Set(news.map((item) => item.source));
+      const categoriesSet = new Set(news.map((item) => item.category));
+      const authorsSet = new Set(news.map((item) => item.author));
+
+      const sources = Array.from(sourcesSet);
+      const categories = Array.from(categoriesSet);
+      const authors = Array.from(authorsSet);
+
+      return {
+        ...state,
+        sources: [...sources],
+        categories: [...categories],
+        authors: [...authors],
       };
 
     case "SET_KEYWORD":
