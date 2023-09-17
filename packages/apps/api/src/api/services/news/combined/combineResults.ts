@@ -11,12 +11,14 @@ export interface ICombineResultsItems {
   newYorkTimesResponse: INewYorkTimesResponse;
   newsApiResponse: INewsApiResponse;
   page: number;
+  keyword: string;
 }
 
 export default function combineResults({
   newYorkTimesResponse,
   newsApiResponse,
   page: currentPage,
+  keyword,
 }: ICombineResultsItems) {
   const totalNewYorkTimesRecords = newYorkTimesResponse.response.meta.hits;
   const totalNewsApiRecords = newsApiResponse.totalResults;
@@ -32,7 +34,9 @@ export default function combineResults({
   const sanitizedNewYorkTimesResults = docs.map(sanitizeNewYorkTimesRecords);
 
   const { articles } = newsApiResponse;
-  const sanitizedNewsApiResults = articles.map(sanitizeNewsApiRecords);
+  const sanitizedNewsApiResults = articles.map((article) =>
+    sanitizeNewsApiRecords({ ...article, keyword })
+  );
 
   const results: IGetManyResponse<INewsResultType> = {
     currentPage,

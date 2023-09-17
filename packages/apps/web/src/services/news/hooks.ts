@@ -19,6 +19,21 @@ export const useCategories = () => useNewsContext().categories;
 
 export const useAuthors = () => useNewsContext().authors;
 
+export const useSetKeyword = () => {
+  const { dispatch } = useNewsContext();
+
+  const setKeyword = useCallback(
+    (keyword: string) => {
+      if (!dispatch) return;
+
+      dispatch({ type: "SET_KEYWORD", payload: keyword });
+    },
+    [dispatch]
+  );
+
+  return setKeyword;
+};
+
 export const useFetchNews = () => {
   const { dispatch, news, currentKeyword, requestHistory } = useNewsContext();
 
@@ -35,24 +50,21 @@ export const useFetchNews = () => {
 
       dispatch?.({ type: "FETCH_NEWS", payload: records });
       dispatch?.({ type: "SET_FILTER_OPTIONS", payload: "" });
-
-      const currentPageForKeyword = requestHistory[currentKeyword] ?? 0;
-
-      const pageToFetch = currentPageForKeyword + 1;
-
-      dispatch?.({
-        type: "ADD_TO_HISTORY",
-        payload: { keyword: currentKeyword, page: pageToFetch },
-      });
     },
   });
 
   const fetchNews = useCallback(() => {
     if (!dispatch) return;
+    if (currentKeyword === "") return;
 
     const currentPageForKeyword = requestHistory[currentKeyword] ?? 0;
 
     const pageToFetch = currentPageForKeyword + 1;
+
+    dispatch?.({
+      type: "ADD_TO_HISTORY",
+      payload: { keyword: currentKeyword, page: pageToFetch },
+    });
 
     const params: ISearchNewsParams = {
       keyword: currentKeyword,

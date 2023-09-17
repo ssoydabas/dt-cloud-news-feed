@@ -3,6 +3,7 @@ import { FilterState } from "~root/services/filter/state";
 
 export default function filterNews(
   news: INewsResultType[],
+  keyword: string,
   filters: FilterState
 ) {
   return news.filter((item) => {

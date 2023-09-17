@@ -26,6 +26,7 @@ export default async function searchContent({
     newYorkTimesResponse,
     newsApiResponse,
     page,
+    keyword,
   });
 
   return combinedResults;
