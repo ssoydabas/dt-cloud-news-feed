@@ -13,15 +13,15 @@ This repository is a monorepo where sub-packages are located in the `/packages` 
 
 ## Apps
 
-1. [@dt-cloud/mobile-app](https://github.com/): react application for getting news.
+1. [@dt-cloud/web](https://github.com/ssoydabas/dt-cloud-news-feed/tree/main/packages/apps/web): react application for getting news.
 
-2. [@dt-cloud/api](https://github.com): DT Cloud API server.
+2. [@dt-cloud/api](https://github.com/ssoydabas/dt-cloud-news-feed/tree/main/packages/apps/api): DT Cloud API server.
 
 ## Modules
 
-1. [MongoDB](https://github.com): provides abstractions to connect, communicate and manage the MongoDb database.
+1. [MongoDB](https://github.com/ssoydabas/dt-cloud-news-feed/tree/main/packages/modules/mongodb): provides abstractions to connect, communicate and manage the MongoDb database.
 
-2. [Mailing](https://github.com): provides abstractions for sending emails.
+2. [Mailing](https://github.com/ssoydabas/dt-cloud-news-feed/tree/main/packages/modules/mailing): provides abstractions for sending emails.
 
 ## 1. DT Cloud Web App
 
