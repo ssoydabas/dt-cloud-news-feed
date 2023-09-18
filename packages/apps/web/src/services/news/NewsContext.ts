@@ -12,4 +12,5 @@ export default createContext<INewsContext>({
   sources: [],
   categories: [],
   authors: [],
+  dates: [],
 });

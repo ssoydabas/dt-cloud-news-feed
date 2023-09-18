@@ -13,6 +13,7 @@ export default function NewsProvider({ children }: INewsProviderProps) {
     sources: [],
     categories: [],
     authors: [],
+    dates: [],
   });
 
   return (
@@ -25,6 +26,7 @@ export default function NewsProvider({ children }: INewsProviderProps) {
         sources: [...state.sources],
         categories: [...state.categories],
         authors: [...state.authors],
+        dates: [...state.dates],
         dispatch,
       }}
     >

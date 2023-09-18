@@ -4,6 +4,7 @@ export interface FilterState {
   source: string;
   category: string;
   author: string;
+  date: string;
 }
 
 export interface SetSourceAction {
@@ -21,9 +22,15 @@ export interface SetAuthorAction {
   payload: string;
 }
 
+export interface SetDateAction {
+  type: "SET_DATE";
+  payload: string;
+}
+
 export type FilterAction =
   | SetSourceAction
   | SetCategoryAction
-  | SetAuthorAction;
+  | SetAuthorAction
+  | SetDateAction;
 
 export type FilterActionDispatcher = Dispatch<FilterAction>;

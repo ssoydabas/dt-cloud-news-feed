@@ -24,6 +24,11 @@ const reducer: FilterReducer = (state, action) => {
         author: action.payload,
       };
 
+    case "SET_DATE":
+      return {
+        ...state,
+        date: action.payload,
+      };
     default:
       return state;
   }

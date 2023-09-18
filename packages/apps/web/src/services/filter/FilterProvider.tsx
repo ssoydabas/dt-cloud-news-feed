@@ -11,6 +11,7 @@ export default function FilterProvider({ children }: IFilterProviderProps) {
     source: "",
     category: "",
     author: "",
+    date: "",
   });
 
   return (

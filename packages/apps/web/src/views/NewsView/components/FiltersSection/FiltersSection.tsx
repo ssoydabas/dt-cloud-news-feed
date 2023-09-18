@@ -3,20 +3,23 @@ import {
   useSources,
   useCategories,
   useAuthors,
+  useDates,
 } from "~root/services/news/hooks";
 
 import { Filter } from "./components";
+import { toReadableDate } from "~root/services/date";
 
 export default function FiltersSection() {
   const sources = useSources();
   const categories = useCategories();
   const authors = useAuthors();
+  const dates = useDates().map((date) => toReadableDate(date));
 
-  const { source, category, author } = useFilters();
-  const { setSource, setCategory, setAuthor } = useFilterDispatch();
+  const { source, category, author, date } = useFilters();
+  const { setSource, setCategory, setAuthor, setDate } = useFilterDispatch();
 
   const filterConfig = [
-    { title: "Source", filter: source, setFilter: setSource, options: sources },
+    { title: "Date", filter: date, setFilter: setDate, options: dates },
     {
       title: "Category",
       filter: category,
@@ -24,6 +27,7 @@ export default function FiltersSection() {
       options: categories,
     },
     { title: "Author", filter: author, setFilter: setAuthor, options: authors },
+    { title: "Source", filter: source, setFilter: setSource, options: sources },
   ];
 
   return (

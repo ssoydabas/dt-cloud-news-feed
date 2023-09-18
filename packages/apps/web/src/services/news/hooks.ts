@@ -19,6 +19,8 @@ export const useCategories = () => useNewsContext().categories;
 
 export const useAuthors = () => useNewsContext().authors;
 
+export const useDates = () => useNewsContext().dates;
+
 export const useSetKeyword = () => {
   const { dispatch } = useNewsContext();
 

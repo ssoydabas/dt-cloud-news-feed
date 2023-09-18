@@ -10,4 +10,5 @@ export default createContext<IFilterContext>({
   source: "",
   category: "",
   author: "",
+  date: "",
 });

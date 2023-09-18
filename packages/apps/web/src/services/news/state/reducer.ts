@@ -20,16 +20,19 @@ const reducer: NewsReducer = (state, action) => {
       const sourcesSet = new Set(news.map((item) => item.source));
       const categoriesSet = new Set(news.map((item) => item.category));
       const authorsSet = new Set(news.map((item) => item.author));
+      const datesSet = new Set(news.map((item) => item.publishedAt.toString()));
 
       const sources = Array.from(sourcesSet);
       const categories = Array.from(categoriesSet);
       const authors = Array.from(authorsSet);
+      const dates = Array.from(datesSet);
 
       return {
         ...state,
         sources: [...sources],
         categories: [...categories],
         authors: [...authors],
+        dates: [...dates],
       };
 
     case "SET_KEYWORD":

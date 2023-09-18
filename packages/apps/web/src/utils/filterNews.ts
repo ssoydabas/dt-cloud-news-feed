@@ -16,7 +16,11 @@ export default function filterNews(
     const authorMatches = filters.author
       ? item.author === filters.author
       : true;
+    const dateMatches = filters.date
+      ? new Date(item.publishedAt).toLocaleDateString() ===
+        new Date(filters.date).toLocaleDateString()
+      : true;
 
-    return sourceMatches && categoryMatches && authorMatches;
+    return sourceMatches && categoryMatches && authorMatches && dateMatches;
   });
 }

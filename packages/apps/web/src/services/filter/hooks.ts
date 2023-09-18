@@ -5,8 +5,8 @@ import FilterContext from "./FilterContext";
 const useFilterContext = () => useContext(FilterContext);
 
 export const useFilters = () => {
-  const { source, category, author } = useFilterContext();
-  return { source, category, author };
+  const { source, category, author, date } = useFilterContext();
+  return { source, category, author, date };
 };
 
 export const useFilterDispatch = () => {
@@ -42,5 +42,15 @@ export const useFilterDispatch = () => {
     [dispatch]
   );
 
-  return { setSource, setCategory, setAuthor };
+  const setDate = useCallback(
+    (date: string) => {
+      dispatch?.({
+        type: "SET_DATE",
+        payload: date,
+      });
+    },
+    [dispatch]
+  );
+
+  return { setSource, setCategory, setAuthor, setDate };
 };

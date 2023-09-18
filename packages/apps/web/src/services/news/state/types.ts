@@ -13,6 +13,7 @@ export interface NewsState {
   sources: string[];
   categories: string[];
   authors: string[];
+  dates: string[];
 }
 
 export interface FetchNewsAction {
