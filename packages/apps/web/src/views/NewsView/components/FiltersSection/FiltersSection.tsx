@@ -34,9 +34,9 @@ export default function FiltersSection() {
     <div className="flex flex-col space-y-6 items-center col-span-1 px-4 border-r">
       <h2 className="w-full text-center text-xl italic">Filters</h2>
 
-      {filterConfig.map(({ title, filter, setFilter, options }) => (
+      {filterConfig.map(({ title, filter, setFilter, options }, index) => (
         <Filter
-          key={title}
+          key={`${index} - ${Math.random()}`}
           title={title}
           filter={filter}
           setFilter={setFilter}

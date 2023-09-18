@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      dockerfile: Dockerfile.api
+      target: development
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mongodb
+    env_file:
+      - ./packages/apps/api/.env
+
+  web:
+    build:
+      dockerfile: Dockerfile.web
+      target: development
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+    env_file:
+      - ./packages/apps/web/.env
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb-data:/data/db
+
+volumes:
+  mongodb-data:

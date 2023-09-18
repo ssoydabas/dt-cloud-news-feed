@@ -26,8 +26,8 @@ export default function Filter({
         className="w-11/12 mx-auto px-4 py-2 border-2 outline-none bg-transparent rounded-xl text-sm"
       >
         <option value="">Select a {title}</option>
-        {options.map((option) => (
-          <option key={option} value={option}>
+        {options.map((option, index) => (
+          <option key={`${index} - ${Math.random()}`} value={option}>
             {option}
           </option>
         ))}

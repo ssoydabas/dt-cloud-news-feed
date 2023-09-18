@@ -1,0 +1,32 @@
+FROM node:18-alpine as development
+
+ENV NODE_ENV=development
+
+WORKDIR /app
+
+COPY package*.json .
+
+COPY packages/modules/mongodb/package.json ./packages/modules/mongodb/
+RUN npm ci --workspace @dt-cloud/mongodb
+
+COPY packages/modules/mongodb ./packages/modules/mongodb
+RUN npm run build --workspace @dt-cloud/mongodb
+
+COPY packages/modules/mailing/package.json ./packages/modules/mailing/
+RUN npm ci --workspace @dt-cloud/mailing
+
+COPY packages/modules/mailing ./packages/modules/mailing
+RUN npm run build --workspace @dt-cloud/mailing
+
+COPY packages/apps/api/package.json ./packages/apps/api/
+RUN npm ci --workspace @dt-cloud/api
+
+COPY packages/apps/api ./packages/apps/api/
+
+COPY packages/apps/web ./packages/apps/web/
+
+WORKDIR ./packages/apps/web
+RUN npm ci
+
+CMD ["npm", "start"]
+
